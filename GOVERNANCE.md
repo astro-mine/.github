@@ -33,7 +33,9 @@ companies that build on the commons help sustain it.
 Substantial changes — anything touching `Core`, a new top-level package, a breaking
 interface change, or a cross-cutting convention — go through a lightweight RFC:
 
-1. **Draft.** Open a PR adding `rfcs/NNNN-short-title.md` (copy `rfcs/0000-template.md`).
+1. **Draft.** Open a PR against the [`astro-mine/docs`](https://github.com/astro-mine/docs)
+   repository adding `rfc/NNNN-short-title.md` (copy
+   [`rfc/0000-template.md`](https://github.com/astro-mine/docs/blob/main/rfc/0000-template.md)).
    Describe the motivation, the design, alternatives considered, and the impact on `Core`.
 2. **Discuss.** The PR is the discussion thread. Maintainers and the community comment.
    Minimum comment window: **one week** for Core-affecting RFCs.
