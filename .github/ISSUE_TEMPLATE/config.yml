@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question / discussion
+    url: https://github.com/orgs/astro-mine/discussions
+    about: Ask questions and discuss ideas with the community.
+  - name: Security vulnerability
+    url: https://github.com/astro-mine/.github/blob/main/SECURITY.md
+    about: Please report security issues privately — do not open a public issue.
+  - name: Design proposal (RFC)
+    url: https://github.com/astro-mine/.github/blob/main/GOVERNANCE.md
+    about: For changes to Core or new packages, follow the RFC process.

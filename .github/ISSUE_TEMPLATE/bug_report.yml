@@ -1,0 +1,48 @@
+name: Bug report
+description: Report a problem in an Astro-Mine package
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug. For **security** issues, do not use this
+        form — follow the [Security Policy](https://github.com/astro-mine/.github/blob/main/SECURITY.md).
+  - type: input
+    id: package
+    attributes:
+      label: Package / repository
+      description: Which Astro-Mine package is affected (e.g. Core, Sim, Worlds)?
+      placeholder: astro-mine/...
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version / commit
+      description: Tag, release, or commit SHA where you saw the bug.
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear description of the bug and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Minimal steps (ideally a snippet or scenario) that reproduce the issue.
+      placeholder: |
+        1. ...
+        2. ...
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Python/runtime version, GPU, and any relevant dependencies.
+    validations:
+      required: false
