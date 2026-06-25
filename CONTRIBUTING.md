@@ -28,13 +28,55 @@ every repository in the [`astro-mine`](https://github.com/astro-mine) organizati
 2. Make your change. Keep `Core` interfaces stable — prefer adding a plugin over widening
    the core.
 3. Add tests and update docs.
-4. Run the repo's linters and test suite locally (see each repo's `README`).
+4. Run the repo's linters and test suite locally (see each repo's `README`). Cover the code
+   you add — CI enforces a coverage gate (see [Testing & coverage](#testing--coverage)).
 5. Open a pull request using the template. Link the issue/RFC it addresses.
+
+## Testing & coverage
+
+Every repository enforces a **95% overall test-coverage gate** in CI: a change that pushes
+coverage below 95% fails the build. Cover the code you add. If a line genuinely cannot be
+tested, exclude it explicitly (see below) rather than lowering the bar.
+
+The gate is wired the same way in every Python repo so it behaves identically everywhere:
+
+- **CI step** (`.github/workflows/ci.yml`) — run the suite under coverage and fail under 95%:
+
+  ```yaml
+  - name: Test (pytest + coverage gate)
+    run: uv run pytest --cov --cov-report=term-missing --cov-fail-under=95
+  ```
+
+  Keep `--cov-fail-under` in the CI invocation (not in `addopts`) so that running a single
+  test file locally doesn't fail spuriously on partial coverage.
+
+- **`pyproject.toml`** — add `pytest-cov` to the dev dependency group, then configure coverage
+  so the gate measures *implemented* code: generated bindings are omitted, and
+  not-yet-implemented placeholders, type-only, and protocol-interface lines are excluded (a
+  stub that later gains a real body must then be tested). Adjust `source` to the package name:
+
+  ```toml
+  [tool.coverage.run]
+  source = ["src/<package>"]
+  omit = ["*/_proto/*"]            # generated protobuf bindings, not hand-maintained
+
+  [tool.coverage.report]
+  show_missing = true
+  exclude_also = [
+    "if TYPE_CHECKING:",
+    "raise NotImplementedError",   # not-yet-implemented placeholders
+    "^\\s*\\.\\.\\.$",             # protocol-interface / stub bodies
+    "@(typing\\.)?overload",
+  ]
+  ```
+
+New component repos should copy this block so they inherit the gate from day one.
 
 ## Pull request expectations
 
 - One logical change per PR; keep them reviewable.
-- All CI checks green. CI runs with read-only token permissions by default.
+- All CI checks green, including the [95% coverage gate](#testing--coverage). CI runs with
+  read-only token permissions by default.
 - A maintainer reviews and merges. Be responsive to review feedback.
 
 ## Commit & license terms
