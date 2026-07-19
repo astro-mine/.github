@@ -8,6 +8,8 @@ every repository in the [`astro-mine`](https://github.com/astro-mine) organizati
 - **Plugins** — new worlds, robots, sensors, planners, policies, or ISRU processes written
   against the `Astro-Mine-Core` interfaces. This is the primary way the platform grows:
   *"support a new environment" should mean writing a package, never patching the core.*
+  See [**Write a plugin**](https://github.com/astro-mine/docs/blob/main/guide/how-to/write-a-plugin.md)
+  for a recipe per extension surface.
 - **Benchmarks & baselines** — new scenarios for `Bench`, or methods that beat the
   leaderboard.
 - **Core & infrastructure** — improvements to the simulation engine, the core interfaces,
@@ -26,7 +28,8 @@ every repository in the [`astro-mine`](https://github.com/astro-mine) organizati
 
 1. Fork the repository and create a branch off `main`.
 2. Make your change. Keep `Core` interfaces stable — prefer adding a plugin over widening
-   the core.
+   the core ([which surface, and when it is an RFC
+   instead](https://github.com/astro-mine/docs/blob/main/guide/how-to/write-a-plugin.md#which-surface-do-i-want)).
 3. Add tests and update docs.
 4. Run the repo's linters and test suite locally (see each repo's `README`). Cover the code
    you add — CI enforces a coverage gate (see [Testing & coverage](#testing--coverage)).
