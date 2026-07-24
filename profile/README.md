@@ -10,8 +10,10 @@ benchmark, and orchestration substrate that planetary-swarm robotics is built on
 ROS and Gazebo became the substrate for terrestrial robotics and Gymnasium became the
 substrate for reinforcement learning.
 
-> **Status:** early incubation (Phase 0). Repositories are private while we scaffold the
-> commons; they go public at the first runnable benchmark milestone.
+> **Status:** Phase 1 (autonomy & studio) shipped — the commons seed, the autonomy stack, the
+> single console, and the anchor benchmark all run. Phase 2 (operations bridge) is next.
+> Repositories are private while we scaffold the commons; they go public at the first public
+> benchmark milestone.
 
 ## Two modes over one core
 
@@ -32,19 +34,33 @@ and changes slowly; worlds, robots, planners, policies, and ISRU processes are a
 | Assets | `Fleet` (Swarm Asset Description Format) |
 | Simulation | `Sim` · `Surrogate` |
 | Autonomy & coordination | `Mind` · `Learn` · `Allocate` · `Guard` |
-| Design & operations | `Studio` · `Ops` · `Bridge` · `View` |
-| Commons backbone | `Core` · `Bench` · `Hub` · `Cloud` |
+| Design & operations | `Studio` · `Console` · `View` · `Ops` † · `Bridge` † |
+| Commons backbone | `Core` · `Spice` · `Seal` · `Bench` · `Hub` · `Cloud` · `Cli` |
+
+† Phase 2. `Spice` (frames/time/geometry) and `Seal` (signing, SLSA, SBOM) are **Core
+companions** — the heavy, shared realizations of Core vocabulary that Core itself stays free
+of ([RFC-0002](https://github.com/astro-mine/docs/blob/main/rfc/0002-shared-spice-foundation.md),
+[RFC-0005](https://github.com/astro-mine/docs/blob/main/rfc/0005-seal-supply-chain-companion.md)).
+`Console` is the single GUI shell every component contributes a surface to
+([RFC-0010](https://github.com/astro-mine/docs/blob/main/rfc/0010-console-surface-contract.md));
+`Cli` is the `astro-mine <verb>` umbrella
+([RFC-0011](https://github.com/astro-mine/docs/blob/main/rfc/0011-umbrella-cli.md)).
 
 ## Roadmap
 
-- **Phase 0 — Commons seed** (`Core`, `Sim`, `Worlds`, `Fleet`, `Bench`) with an anchor
-  scenario: **lunar polar water-ice prospecting**.
-- **Phase 1 — Autonomy & studio** (`Mind`, `Learn`, `Allocate`, `Guard`, `Studio`, `Hub`).
-- **Phase 2 — Operations bridge** (`Ops`, `Bridge`, `View`) validated on terrestrial analogs.
-- **Phase 3 — Flight & ecosystem** — flight-software integration and new worlds as plugins.
+- **Phase 0 — Commons seed** ✅ (`Core`, `Spice`, `Sim`, `Worlds`, `Fleet`, `Bench`, `Prospect`,
+  `Link`, `Cloud`) with an anchor scenario: **lunar polar water-ice prospecting**.
+- **Phase 1 — Autonomy & studio** ✅ (`Mind`, `Learn`, `Allocate`, `Guard`, `Studio`, `Hub`,
+  `Surrogate`, `Seal`, `View`, `Console`, `Cli`).
+- **Phase 2 — Operations bridge** (`Ops`, `Bridge`, and the full operations viewer) validated on
+  terrestrial analogs.
+- **Phase 3 — Flight & ecosystem** — flight-software integration, the multi-regime mission track
+  (`Transit`, `Trajectory`, `Sizing`, `Ledger`), and new worlds as plugins.
 
 ## Get involved
 
+- 📖 [User guide](https://github.com/astro-mine/docs/blob/main/guide/README.md) — start at
+  [getting started](https://github.com/astro-mine/docs/blob/main/guide/getting-started.md)
 - 📜 [Governance & RFC process](https://github.com/astro-mine/.github/blob/main/GOVERNANCE.md)
 - 🤝 [Contributing guide](https://github.com/astro-mine/.github/blob/main/CONTRIBUTING.md)
 - 🛡️ [Security policy](https://github.com/astro-mine/.github/blob/main/SECURITY.md)
