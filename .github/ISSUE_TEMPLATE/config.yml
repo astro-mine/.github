@@ -6,6 +6,6 @@ contact_links:
   - name: Security vulnerability
     url: https://github.com/astro-mine/.github/blob/main/SECURITY.md
     about: Please report security issues privately — do not open a public issue.
-  - name: Design proposal (RFC)
-    url: https://github.com/astro-mine/.github/blob/main/GOVERNANCE.md
-    about: For changes to Core or new packages, follow the RFC process.
+  - name: How changes are governed
+    url: https://github.com/astro-mine/.github/blob/main/GOVERNANCE.md#how-changes-are-governed
+    about: What a change to Core has to clear, and where a decision is recorded.
