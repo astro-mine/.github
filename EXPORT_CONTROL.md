@@ -26,7 +26,7 @@ dual-use seriously **from day one**. Open does not mean naive.
   that is subject to export controls or that you are not authorized to release publicly
   (e.g., controlled technical data, ITAR-controlled designs, proprietary mission data).
 - **Flag concerns early.** If a proposed contribution might cross into controlled or
-  sensitive operational capability, raise it in an issue or RFC **before** writing code.
+  sensitive operational capability, raise it in an issue **before** writing code.
 
 ## Disclaimer
 

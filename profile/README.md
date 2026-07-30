@@ -37,14 +37,15 @@ and changes slowly; worlds, robots, planners, policies, and ISRU processes are a
 | Design & operations | `Studio` · `Console` · `View` · `Ops` † · `Bridge` † |
 | Commons backbone | `Core` · `Spice` · `Seal` · `Bench` · `Hub` · `Cloud` · `Cli` |
 
-† Phase 2. `Spice` (frames/time/geometry) and `Seal` (signing, SLSA, SBOM) are **Core
-companions** — the heavy, shared realizations of Core vocabulary that Core itself stays free
-of ([RFC-0002](https://github.com/astro-mine/docs/blob/main/rfc/0002-shared-spice-foundation.md),
-[RFC-0005](https://github.com/astro-mine/docs/blob/main/rfc/0005-seal-supply-chain-companion.md)).
-`Console` is the single GUI shell every component contributes a surface to
-([RFC-0010](https://github.com/astro-mine/docs/blob/main/rfc/0010-console-surface-contract.md));
-`Cli` is the `astro-mine <verb>` umbrella
-([RFC-0011](https://github.com/astro-mine/docs/blob/main/rfc/0011-umbrella-cli.md)).
+† Phase 2. [`Spice`](https://github.com/astro-mine/docs/blob/main/architecture/spice.md)
+(frames/time/geometry) and
+[`Seal`](https://github.com/astro-mine/docs/blob/main/architecture/seal.md) (signing, SLSA,
+SBOM) are **Core companions** — the heavy, shared realizations of Core vocabulary that Core
+itself stays free of.
+[`Console`](https://github.com/astro-mine/docs/blob/main/architecture/console.md) is the
+single GUI shell every component contributes a surface to;
+[`Cli`](https://github.com/astro-mine/docs/blob/main/architecture/cli.md) is the
+`astro-mine <verb>` umbrella.
 
 ## Roadmap
 
@@ -61,7 +62,8 @@ of ([RFC-0002](https://github.com/astro-mine/docs/blob/main/rfc/0002-shared-spic
 
 - 📖 [User guide](https://github.com/astro-mine/docs/blob/main/guide/README.md) — start at
   [getting started](https://github.com/astro-mine/docs/blob/main/guide/getting-started.md)
-- 📜 [Governance & RFC process](https://github.com/astro-mine/.github/blob/main/GOVERNANCE.md)
+- 📜 [Governance](https://github.com/astro-mine/.github/blob/main/GOVERNANCE.md) — how changes
+  are governed, and what a change to `Core` has to clear
 - 🤝 [Contributing guide](https://github.com/astro-mine/.github/blob/main/CONTRIBUTING.md)
 - 🛡️ [Security policy](https://github.com/astro-mine/.github/blob/main/SECURITY.md)
 - 🌐 [Export-control & dual-use notice](https://github.com/astro-mine/.github/blob/main/EXPORT_CONTROL.md)

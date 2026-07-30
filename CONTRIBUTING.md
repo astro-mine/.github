@@ -13,14 +13,15 @@ every repository in the [`astro-mine`](https://github.com/astro-mine) organizati
 - **Benchmarks & baselines** — new scenarios for `Bench`, or methods that beat the
   leaderboard.
 - **Core & infrastructure** — improvements to the simulation engine, the core interfaces,
-  or the tooling. Changes to `Core` go through the [RFC process](GOVERNANCE.md#the-rfc-process).
+  or the tooling. Changes to `Core` are held to [what a Core change has to
+  clear](GOVERNANCE.md#how-changes-are-governed).
 - **Docs, examples, and bug reports** — always welcome.
 
 ## Before you start
 
-- For anything substantial, **open an issue first** to discuss the approach. For changes to
-  `Core`, a new top-level package, or a breaking interface change, open an **RFC** (see
-  [`GOVERNANCE.md`](GOVERNANCE.md)).
+- For anything substantial, **open an issue first** to discuss the approach. Changes to
+  `Core`, a new top-level component, or a breaking interface change carry extra obligations —
+  see [how changes are governed](GOVERNANCE.md#how-changes-are-governed).
 - Check that your contribution respects the [export-control & dual-use
   posture](EXPORT_CONTROL.md). When in doubt, ask before writing code.
 
@@ -28,12 +29,12 @@ every repository in the [`astro-mine`](https://github.com/astro-mine) organizati
 
 1. Fork the repository and create a branch off `main`.
 2. Make your change. Keep `Core` interfaces stable — prefer adding a plugin over widening
-   the core ([which surface, and when it is an RFC
+   the core ([which surface, and when it is a Core change
    instead](https://github.com/astro-mine/docs/blob/main/guide/how-to/write-a-plugin.md#which-surface-do-i-want)).
 3. Add tests and update docs.
 4. Run the repo's linters and test suite locally (see each repo's `README`). Cover the code
    you add — CI enforces a coverage gate (see [Testing & coverage](#testing--coverage)).
-5. Open a pull request using the template. Link the issue/RFC it addresses.
+5. Open a pull request using the template. Link the issue it addresses.
 
 ## Testing & coverage
 

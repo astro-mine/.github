@@ -4,9 +4,9 @@
 
 <!-- A clear, concise description of the change. -->
 
-## Related issue / RFC
+## Related issue
 
-<!-- Link the issue or RFC this addresses, e.g. "Closes #123". Changes to Core require an RFC. -->
+<!-- Link the issue this addresses, e.g. "Closes #123". -->
 
 ## Type of change
 
@@ -14,11 +14,13 @@
 - [ ] New feature / plugin
 - [ ] Breaking change (interface or behavior)
 - [ ] Docs / examples
-- [ ] Affects `Astro-Mine-Core` interfaces (requires an accepted RFC)
+- [ ] Affects `Astro-Mine-Core` interfaces — names a consumer, is additive, is wire-compatible,
+      and is green against every consumer's schema and contract tests
+      ([how changes are governed](../GOVERNANCE.md#how-changes-are-governed))
 
 ## Checklist
 
-- [ ] I opened an issue/RFC first for anything substantial
+- [ ] I opened an issue first for anything substantial
 - [ ] Tests added or updated and passing locally
 - [ ] Docs updated
 - [ ] I kept `Core` stable (preferred a plugin over widening the core)
