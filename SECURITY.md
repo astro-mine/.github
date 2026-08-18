@@ -11,10 +11,10 @@ Instead, use GitHub's **private vulnerability reporting**: on the affected repos
 the **Security** tab → **Report a vulnerability**. This opens a private advisory visible
 only to maintainers.
 
-**If that option is not visible**, email <SECURITY-CONTACT-EMAIL> instead. Private vulnerability
-reporting cannot be enabled for a private repository, so it is switched on at the same moment the
-organization becomes public — and a disclosure path that only works once a setting has been flipped
-is not a disclosure path. The mailbox is the one that always works.
+Private vulnerability reporting cannot be enabled for a private repository, so it is switched on at
+the same moment the organization becomes public. If the option is not visible on a repository, it
+has not been enabled there yet — say so in a normal issue **without any detail**, and a maintainer
+will open a private channel.
 
 Please include:
 
