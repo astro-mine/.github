@@ -11,6 +11,11 @@ Instead, use GitHub's **private vulnerability reporting**: on the affected repos
 the **Security** tab → **Report a vulnerability**. This opens a private advisory visible
 only to maintainers.
 
+**If that option is not visible**, email <SECURITY-CONTACT-EMAIL> instead. Private vulnerability
+reporting cannot be enabled for a private repository, so it is switched on at the same moment the
+organization becomes public — and a disclosure path that only works once a setting has been flipped
+is not a disclosure path. The mailbox is the one that always works.
+
 Please include:
 
 - the affected repository, package, and version/commit;
@@ -32,8 +37,10 @@ flight-targeting **out of scope** — see [`EXPORT_CONTROL.md`](EXPORT_CONTROL.m
 
 ## Supported versions
 
-During Phase-0 incubation only the latest `main` of each repository is supported. A formal
-support matrix will be published once we cut tagged releases.
+Only the latest `main` of each repository is supported. The first tag, `v0.1.0`, is cut, but
+distributions remain `0.y` and nothing is published to a package index during incubation
+(`VERSIONING.md` §6.2), so there is no released version to support separately from `main`. A formal
+support matrix arrives with the first published distribution.
 
 ## Signing keys and the trust root
 
@@ -86,5 +93,5 @@ issue.
 The packaged trust root is **empty**, which means it can never be the reason an artifact is
 accepted, and `require_signature` is `False` outside the hosted tier. Enforcement posture — flipping
 it on for the hosted tier and Guard's load gate — is tracked in
-[`astro-mine-platform#22`](https://github.com/astro-mine/astro-mine-platform/issues/22). Until then,
+[`astro-mine-platform#28`](https://github.com/astro-mine/astro-mine-platform/issues/28). Until then,
 signature *identity* is checked only where a caller passes a root.

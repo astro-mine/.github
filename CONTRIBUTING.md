@@ -6,7 +6,7 @@ every repository in the [`astro-mine`](https://github.com/astro-mine) organizati
 ## Ways to contribute
 
 - **Plugins** — new worlds, robots, sensors, planners, policies, or ISRU processes written
-  against the `Astro-Mine-Core` interfaces. This is the primary way the platform grows:
+  against the `astro_mine.core` interfaces. This is the primary way the platform grows:
   *"support a new environment" should mean writing a package, never patching the core.*
   See [**Write a plugin**](https://github.com/astro-mine/docs/blob/main/guide/how-to/write-a-plugin.md)
   for a recipe per extension surface.
@@ -38,11 +38,16 @@ every repository in the [`astro-mine`](https://github.com/astro-mine) organizati
 
 ## Testing & coverage
 
-Every repository enforces a **95% overall test-coverage gate** in CI: a change that pushes
-coverage below 95% fails the build. Cover the code you add. If a line genuinely cannot be
-tested, exclude it explicitly (see below) rather than lowering the bar.
+**`astro-mine-cli` and `astro-mine-api` enforce a 95% overall test-coverage gate** in CI: a change
+that pushes coverage below 95% fails the build. **`astro-mine-platform` measures coverage and
+reports it, but does not fail on it** — the threshold is not wired there, so treat 95% as the
+standard you are held to in review rather than by the build. `astro-mine-ui` is TypeScript and
+gates differently (see its workspace scripts).
 
-The gate is wired the same way in every Python repo so it behaves identically everywhere:
+Either way: cover the code you add, and if a line genuinely cannot be tested, exclude it explicitly
+(see below) rather than lowering the bar.
+
+Where the gate is wired, it is wired the same way, so it behaves identically:
 
 - **CI step** (`.github/workflows/ci.yml`) — run the suite under coverage and fail under 95%:
 
@@ -74,7 +79,28 @@ The gate is wired the same way in every Python repo so it behaves identically ev
   ]
   ```
 
-New component repos should copy this block so they inherit the gate from day one.
+This block lives in each distribution's `pyproject.toml`. **A new component does not get a new
+repository** — see below.
+
+## Where your change goes
+
+**A component is a unit of design; a distribution is a unit of release.** There are four
+repositories that ship code, and new work lands in an existing one rather than a new repo:
+
+| You are writing | It goes in |
+|---|---|
+| Library code for any component | **`astro-mine-platform`** — as `astro_mine.<component>`, a subpackage |
+| A new command | **`astro-mine-cli`** — a thin wrapper; it must not implement platform behaviour |
+| A REST route | **`astro-mine-api`** |
+| Anything in the browser | **`astro-mine-ui`** |
+
+A **new component is a new subpackage of the platform wheel**, never a new repository. The
+per-component repositories this project started with were consolidated and then deleted, so a
+reference to `astro-mine-<component>` in an old issue or document points at nothing.
+
+Plugins are the exception that proves the rule: they live in **your** repository, are discovered
+through entry points, and **never require a pull request to the platform**. That is the whole design
+(charter §9.2).
 
 ## Pull request expectations
 

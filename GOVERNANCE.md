@@ -7,7 +7,7 @@ companies that build on the commons help sustain it.
 
 ## Principles
 
-1. **Thin core, thick edges.** `Astro-Mine-Core` (the Swarm Asset Description Format, the
+1. **Thin core, thick edges.** `astro_mine.core` (the Swarm Asset Description Format, the
    environment and policy/planner APIs, and the message schemas) is the "narrow waist."
    It is small, stable, and slow-changing. Everything valuable lives in plugins.
 2. **Contribute once, use everywhere.** A new world, robot, planner, or ISRU process is
@@ -44,7 +44,7 @@ not in a parallel archive of proposals that a reader has to reconcile against th
 - [`architecture/conventions.md`](https://github.com/astro-mine/docs/blob/main/architecture/conventions.md)
   for cross-cutting standards that bind every component;
 - the owning component's document in
-  [`architecture/`](https://github.com/astro-mine/docs/blob/main/architecture/) for its own
+  [`architecture/`](https://github.com/astro-mine/docs/tree/main/architecture) for its own
   contract.
 
 A change to how the platform works is not done until the document that governs it says so.

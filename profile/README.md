@@ -10,10 +10,12 @@ benchmark, and orchestration substrate that planetary-swarm robotics is built on
 ROS and Gazebo became the substrate for terrestrial robotics and Gymnasium became the
 substrate for reinforcement learning.
 
-> **Status:** Phase 1 (autonomy & studio) shipped — the commons seed, the autonomy stack, the
-> single console, and the anchor benchmark all run. Phase 2 (operations bridge) is next.
-> Repositories are private while we scaffold the commons; they go public at the first public
-> benchmark milestone.
+> **Status:** Phases 0 and 1 shipped — the commons seed, the autonomy stack, the console, and the
+> anchor benchmark all run. Phase 2 (operations bridge) is next.
+>
+> The code is public; **the distributions are not yet published to a package index**, so you install
+> from source for now (`VERSIONING.md` §6.2). Nothing here is a released, supported artifact yet —
+> distributions are `0.y` and interfaces can still move.
 
 ## Two modes over one core
 
@@ -26,33 +28,46 @@ substrate for reinforcement learning.
 The architecture is a **thin, stable core with thick, swappable edges**: `Core` is small
 and changes slowly; worlds, robots, planners, policies, and ISRU processes are all plugins.
 
-## Package map
+## What ships
 
-| Layer | Packages |
+**A component is a unit of design; a distribution is a unit of release.** Four things ship, and
+every component is imported as `astro_mine.<name>` from the first of them:
+
+| Distribution | What it is |
+|---|---|
+| [`astro-mine-platform`](https://github.com/astro-mine/astro-mine-platform) | Every component, one Python wheel. A library — no server, no front end. |
+| [`astro-mine-cli`](https://github.com/astro-mine/astro-mine-cli) | The one executable: `astro-mine <component> <verb>`. |
+| [`astro-mine-api`](https://github.com/astro-mine/astro-mine-api) | The REST tier — Hub, Studio, Cloud and Bench surfaces. |
+| [`astro-mine-ui`](https://github.com/astro-mine/astro-mine-ui) | The console: one Next.js application over four libraries. |
+
+## Component map
+
+| Layer | Components |
 |---|---|
 | World & environment | `Worlds` · `Prospect` · `Link` |
 | Assets | `Fleet` (Swarm Asset Description Format) |
 | Simulation | `Sim` · `Surrogate` |
 | Autonomy & coordination | `Mind` · `Learn` · `Allocate` · `Guard` |
-| Design & operations | `Studio` · `Console` · `View` · `Ops` † · `Bridge` † |
-| Commons backbone | `Core` · `Spice` · `Seal` · `Bench` · `Hub` · `Cloud` · `Cli` |
+| Design & operations | `Studio` · `View` · `Ops` † · `Bridge` † |
+| Commons backbone | `Core` · `Spice` · `Seal` · `Bench` · `Hub` · `Cloud` |
 
 † Phase 2. [`Spice`](https://github.com/astro-mine/docs/blob/main/architecture/spice.md)
 (frames/time/geometry) and
 [`Seal`](https://github.com/astro-mine/docs/blob/main/architecture/seal.md) (signing, SLSA,
 SBOM) are **Core companions** — the heavy, shared realizations of Core vocabulary that Core
 itself stays free of.
-[`Console`](https://github.com/astro-mine/docs/blob/main/architecture/console.md) is the
-single GUI shell every component contributes a surface to;
-[`Cli`](https://github.com/astro-mine/docs/blob/main/architecture/cli.md) is the
-`astro-mine <verb>` umbrella.
+The **console** is not a component: it is the single GUI, and it is the `astro-mine-ui`
+application itself — adding a page is adding a route
+([`ui.md`](https://github.com/astro-mine/docs/blob/main/architecture/ui.md)). `View` survives as
+the `@astro-mine/view` visualization library.
 
 ## Roadmap
 
 - **Phase 0 — Commons seed** ✅ (`Core`, `Spice`, `Sim`, `Worlds`, `Fleet`, `Bench`, `Prospect`,
   `Link`, `Cloud`) with an anchor scenario: **lunar polar water-ice prospecting**.
 - **Phase 1 — Autonomy & studio** ✅ (`Mind`, `Learn`, `Allocate`, `Guard`, `Studio`, `Hub`,
-  `Surrogate`, `Seal`, `View`, `Console`, `Cli`).
+  `Surrogate`, `Seal`, `View`), followed by the packaging consolidation into the four
+  distributions above.
 - **Phase 2 — Operations bridge** (`Ops`, `Bridge`, and the full operations viewer) validated on
   terrestrial analogs.
 - **Phase 3 — Flight & ecosystem** — flight-software integration, the multi-regime mission track

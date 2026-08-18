@@ -12,6 +12,14 @@ dual-use seriously **from day one**. Open does not mean naive.
   flight-code generator or turnkey operational targeting for real flight hardware is
   **intentionally excluded** from the open core. Capabilities that are genuinely sensitive
   are partitioned rather than published.
+- **The partition has a name and a gate.** Sensitive capability is declared with a Core capability
+  tag — `operational_targeting` and the rest of the sealed set (`astro_mine.core.sadf`
+  `CapabilityTag`) — and evaluated at the **Hub download boundary** before any bytes are returned,
+  failing closed on denial and writing every decision to an append-only audit log stamped with the
+  policy-bundle version that produced it. The same vocabulary gates dispatch at the `Bridge`
+  boundary when that ships. **This is admission control on distribution, not a technical measure
+  that prevents anyone from writing targeting code** — we would rather name the control precisely
+  than imply more of it.
 - **Interop, not weaponization.** Bridges to ROS 2, cFS, F´, SPICE, OpenMCT, and STK/GMAT
   exist to lower adoption cost for research and education, not to deliver operational
   capability against real assets.

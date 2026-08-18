@@ -51,7 +51,8 @@ social media account, or acting as an appointed representative at an online or o
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the
-community leaders responsible for enforcement via GitHub's private reporting on the relevant
+community leaders responsible for enforcement by email to <SECURITY-CONTACT-EMAIL>, or via
+GitHub's private reporting on the relevant
 repository, or by opening a private security advisory if no other private channel is
 available. All complaints will be reviewed and investigated promptly and fairly.
 
