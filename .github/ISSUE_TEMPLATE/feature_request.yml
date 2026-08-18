@@ -5,7 +5,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        For changes to `Astro-Mine-Core` interfaces, a new top-level component, or a breaking
+        For changes to `astro_mine.core` interfaces, a new top-level component, or a breaking
         change, read [how changes are governed](https://github.com/astro-mine/.github/blob/main/GOVERNANCE.md#how-changes-are-governed)
         first — those changes carry obligations an ordinary feature request does not.
   - type: textarea

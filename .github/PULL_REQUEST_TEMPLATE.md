@@ -14,7 +14,7 @@
 - [ ] New feature / plugin
 - [ ] Breaking change (interface or behavior)
 - [ ] Docs / examples
-- [ ] Affects `Astro-Mine-Core` interfaces — names a consumer, is additive, is wire-compatible,
+- [ ] Affects `astro_mine.core` interfaces — names a consumer, is additive, is wire-compatible,
       and is green against every consumer's schema and contract tests
       ([how changes are governed](../GOVERNANCE.md#how-changes-are-governed))
 
